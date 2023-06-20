@@ -2,7 +2,6 @@ package streetsafety.com.demo.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import streetsafety.com.demo.dtos.PagoDTO;
 import streetsafety.com.demo.dtos.PagoTotalDTO;
@@ -26,7 +25,6 @@ public class PagoController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('USER')")
     public List<PagoDTO>list(){
         return pS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();

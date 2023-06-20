@@ -2,7 +2,6 @@ package streetsafety.com.demo.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import streetsafety.com.demo.dtos.SuscripcionDTO;
 import streetsafety.com.demo.entities.Suscripcion;
@@ -25,7 +24,6 @@ public class SuscripcionController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
     public List<SuscripcionDTO>list(){
         return sS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
